@@ -68,13 +68,13 @@ void addStudents() {
         return;
     }
     struct Students s;
-    printf("Enter ID: ");
+    printf("Enter ID : ");
     scanf("%d",&s.id);
-    printf("Enter Name: ");
+    printf("Enter Name : ");
     scanf("%[^\n]",s.name);
-    printf("Enter Age: ");
+    printf("Enter Age : ");
     scanf("%d",&s.age);
-    printf("Enter Marks: ");
+    printf("Enter Marks : ");
     scanf("%d", &s.marks);
 
     fwrite(&s, sizeof(s), 1, fp);
@@ -90,10 +90,33 @@ void displayStudents(){
     }
 
     struct Students s;
-    printf("\nID\tName\tAge\tMarks\n");
+    printf("\nID:\tName:\tAge:\tMarks:\n");
     while(fread(&s, sizeof(s), 1, fp))
     {
         printf("%d\t%s\t%d\t%.2f\n", s.id, s.name, s.age, s.marks);
     }
     fclose(fp);
+}
+
+// Search Student
+void searchStudents() {
+    FILE *fp = ffopen(FILENAME, "rb");
+    if(!fp) {
+        printf("No records found.\n");
+        return;
+    }
+    int id, found = 0;
+    struct Students s;
+    printf("Enter student ID to search :");
+    scanf("%d", &id);
+    while(fread(&s, sizeof(s),1,fp)){
+        if(s.id == id){
+            printf("\nID: %d\nName: %s\nAge: %d\nMarks: %.2f\n", s.id, s.name, s.age, s.marks);
+            found = 1;
+            break;
+        }
+    }
+    if (!found) 
+        printf("Student not found!\n");
+        fclose(fp);
 }
