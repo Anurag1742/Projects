@@ -4,7 +4,7 @@
 
 #define FILENAME "students.dat"
 
-struct Student
+struct Students
 {
     int id;
     char name[50];
@@ -12,7 +12,7 @@ struct Student
     float marks;
 };
 
-void addStudent();
+void addStudents();
 void displayStudents();
 void searchStudent();
 void deleteStudent();
@@ -33,14 +33,67 @@ int main()
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
-        switch(choice){
-            case 1: addsStudents(); break;
-            case 2: displayStudents(); break;
-            case 3: searchStudents(); break;
-            case 4: deleteStudents(); break;
-            case 5: updateStudents(); break;
-            case 6: exit(0); break;
-            default: printf("Wrong Choice! Pelese try again.");
+        switch (choice)
+        {
+        case 1:
+            addsStudents();
+            break;
+        case 2:
+            displayStudents();
+            break;
+        case 3:
+            searchStudents();
+            break;
+        case 4:
+            deleteStudents();
+            break;
+        case 5:
+            updateStudents();
+            break;
+        case 6:
+            exit(0);
+            break;
+        default:
+            printf("Wrong Choice! Pelese try again.");
+        }
+        return 0;
     }
-    return 0;
+}
+
+//Add Student
+void addStudents() {
+    FILE *fp = fopen(FILENAME,"ab");    // fopen :- automaticaly open a new file
+    if(!fp){
+        printf("Error Opeening File\n");    // Got this result if we can't find any file
+        return;
+    }
+    struct Students s;
+    printf("Enter ID: ");
+    scanf("%d",&s.id);
+    printf("Enter Name: ");
+    scanf("%[^\n]",s.name);
+    printf("Enter Age: ");
+    scanf("%d",&s.age);
+    printf("Enter Marks: ");
+    scanf("%d", &s.marks);
+
+    fwrite(&s, sizeof(s), 1, fp);
+    printf("Student record added Successfully!\n");
+}
+
+//Display Student
+void displayStudents(){
+    FILE *fp = fopen(FILENAME, "rb");
+    if(!fp){
+        printf("\nID\tName\tAge\nMarks\n");
+        return;
+    }
+
+    struct Students s;
+    printf("\nID\tName\tAge\tMarks\n");
+    while(fread(&s, sizeof(s), 1, fp))
+    {
+        printf("%d\t%s\t%d\t%.2f\n", s.id, s.name, s.age, s.marks);
+    }
+    fclose(fp);
 }
