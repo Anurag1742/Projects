@@ -60,48 +60,55 @@ int main()
     }
 }
 
-//Add Student
-void addStudents() {
-    FILE *fp = fopen(FILENAME,"ab");    // fopen :- automaticaly open a new file
-    if(!fp){
-        printf("Error Opeening File\n");    // Got this result if we can't find any file
+// Add Student
+void addStudents()
+{
+    FILE *fp = fopen(FILENAME, "ab"); // fopen :- automaticaly open a new file
+    if (!fp)
+    {
+        printf("Error Opeening File\n"); // Got this result if we can't find any file
         return;
     }
     struct Students s;
     printf("Enter ID : ");
-    scanf("%d",&s.id);
+    scanf("%d", &s.id);
     printf("Enter Name : ");
-    scanf("%[^\n]",s.name);
+    scanf("%[^\n]", s.name);
     printf("Enter Age : ");
-    scanf("%d",&s.age);
+    scanf("%d", &s.age);
     printf("Enter Marks : ");
-    scanf("%d", &s.marks);
+    scanf("%f", &s.marks);
 
     fwrite(&s, sizeof(s), 1, fp);
     printf("Student record added Successfully!\n");
 }
 
-//Display Student
-void displayStudents(){
+// Display Student
+void displayStudents()
+{
     FILE *fp = fopen(FILENAME, "rb");
-    if(!fp){
+    if (!fp)
+    {
         printf("\nID\tName\tAge\nMarks\n");
         return;
     }
 
     struct Students s;
     printf("\nID:\tName:\tAge:\tMarks:\n");
-    while(fread(&s, sizeof(s), 1, fp))
+    while (fread(&s, sizeof(s), 1, fp))
     {
         printf("%d\t%s\t%d\t%.2f\n", s.id, s.name, s.age, s.marks);
     }
     fclose(fp);
+    printf("Student record display Successfully!");
 }
 
 // Search Student
-void searchStudents() {
+void searchStudents()
+{
     FILE *fp = ffopen(FILENAME, "rb");
-    if(!fp) {
+    if (!fp)
+    {
         printf("No records found.\n");
         return;
     }
@@ -109,14 +116,52 @@ void searchStudents() {
     struct Students s;
     printf("Enter student ID to search :");
     scanf("%d", &id);
-    while(fread(&s, sizeof(s),1,fp)){
-        if(s.id == id){
+    while (fread(&s, sizeof(s), 1, fp))
+    {
+        if (s.id == id)
+        {
             printf("\nID: %d\nName: %s\nAge: %d\nMarks: %.2f\n", s.id, s.name, s.age, s.marks);
             found = 1;
             break;
         }
     }
-    if (!found) 
+    if (!found)
         printf("Student not found!\n");
-        fclose(fp);
+    fclose(fp);
+}
+
+// delete Student
+void deleteStudent()
+{
+    FILE *fp = fopen(FILENAME, "rb");
+    if (!fp)
+    {
+        printf("No records found!\n");
+        return;
+    }
+    FILE *temp = fopen("temp.dat", "wb");
+
+    int id, found = 0;
+    struct Students s;
+    printf("Enter student ID to delete: ");
+    scanf("%d", &id);
+    while (fread(&s, sizeof(s), 1, fp))
+    {
+        if (s.id != id)
+            fwrite(&s, sizeof(s), 1, temp);
+        else
+            found = 1;
+    }
+    fclose(fp);
+    fclose(temp);
+    remove(FILENAME);
+    rename("temp.dat", FILENAME);
+    if (found)
+    {
+        printf("Student deleted Successfully!\n");
+    }
+    else
+    {
+        printf("No records found!\n");
+    }
 }
