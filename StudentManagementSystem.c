@@ -56,7 +56,7 @@ int main()
         default:
             printf("Wrong Choice! Pelese try again.");
         }
-        return 0;
+        
     }
 }
 
@@ -73,14 +73,15 @@ void addStudents()
     printf("Enter ID : ");
     scanf("%d", &s.id);
     printf("Enter Name : ");
+    getchar();
     scanf("%[^\n]", s.name);
     printf("Enter Age : ");
     scanf("%d", &s.age);
     printf("Enter Marks : ");
     scanf("%f", &s.marks);
-
+    
     fwrite(&s, sizeof(s), 1, fp);
-    printf("Student record added Successfully!\n");
+    printf("Student record added Successfully!\n");    
 }
 
 // Display Student
@@ -180,11 +181,12 @@ void updateStudent() {
     while (fread(&s, sizeof(s), 1, fp)) {
         if(s.id == id) {
             printf("Enter new Name: ");
+            getchar();
             scanf("%[^\n]",s.name);
             printf("Enter new Age: ");
             scanf("%d",&s.age);
             printf("Enter new Marks: ");
-            scanf("%[^\n]",&s.marks);
+            scanf("%f",&s.marks);
             fseek(fp, -sizeof(s), SEEK_CUR);
             fwrite(&s, sizeof(s), 1, fp);
             found = 1;
