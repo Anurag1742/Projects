@@ -23,8 +23,8 @@ int main()
     int choice;
     while (1)
     {
-        pirntf("\nStudent Management System\n");
-        pritnf("1. Add Student\n");
+        printf("\nStudent Management System\n");
+        printf("1. Add Student\n");
         printf("2. Display Students\n");
         printf("3. Search Student\n");
         printf("4. Delete Student\n");
@@ -36,19 +36,19 @@ int main()
         switch (choice)
         {
         case 1:
-            addsStudents();
+            addStudents();
             break;
         case 2:
             displayStudents();
             break;
         case 3:
-            searchStudents();
+            searchStudent();
             break;
         case 4:
-            deleteStudents();
+            deleteStudent();
             break;
         case 5:
-            updateStudents();
+            updateStudent();
             break;
         case 6:
             exit(0);
@@ -89,7 +89,7 @@ void displayStudents()
     FILE *fp = fopen(FILENAME, "rb");
     if (!fp)
     {
-        printf("\nID\tName\tAge\nMarks\n");
+        printf("No records found!\n");
         return;
     }
 
@@ -104,9 +104,9 @@ void displayStudents()
 }
 
 // Search Student
-void searchStudents()
+void searchStudent()
 {
-    FILE *fp = ffopen(FILENAME, "rb");
+    FILE *fp = fopen(FILENAME, "rb");
     if (!fp)
     {
         printf("No records found.\n");
@@ -163,5 +163,38 @@ void deleteStudent()
     else
     {
         printf("No records found!\n");
+    }
+}
+
+// Update Student
+void updateStudent() {
+    FILE *fp = fopen(FILENAME, "rb+");
+    if(!fp) {
+        printf("No records found!\n");
+        return;
+    }
+    int id,found = 0;
+    struct Students s;
+    printf("Enter student ID to update: ");
+    scanf("%d", &id);
+    while (fread(&s, sizeof(s), 1, fp)) {
+        if(s.id == id) {
+            printf("Enter new Name: ");
+            scanf("%[^\n]",s.name);
+            printf("Enter new Age: ");
+            scanf("%d",&s.age);
+            printf("Enter new Marks: ");
+            scanf("%[^\n]",&s.marks);
+            fseek(fp, -sizeof(s), SEEK_CUR);
+            fwrite(&s, sizeof(s), 1, fp);
+            found = 1;
+            break;
+        }
+    }
+    fclose(fp);
+    if(found){
+        printf("Student record updated Successfully!\n");
+    }else{
+        printf("Student not found!\n");
     }
 }
