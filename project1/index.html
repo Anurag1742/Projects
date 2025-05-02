@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVA - Empathetic Voice Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <!-- Floating AI Background -->
+  <div class="ai-bg">
+    <img src="https://i.imgur.com/JYl7eEj.png" alt="AI Avatar" class="floating" />
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><button onclick="showFeature('mental')" id="mental-btn"><i class="fas fa-brain"></i> Mental Health</button></li>
+      <li><button onclick="showFeature('daily')" id="daily-btn"><i class="fas fa-calendar-day"></i> Daily Assistant</button></li>
+      <li><button onclick="showFeature('support')" id="support-btn"><i class="fas fa-headset"></i> Customer Support</button></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1 class="animate_animated animate_fadeIn">EVA</h1>
+    <p class="tagline animate_animated animatefadeIn animate_delay-1s">Your Empathetic Voice Assistant</p>
+
+    <!-- Feature Description -->
+    <div id="feature-box" class="feature-box">
+      <h2 id="feature-title"></h2>
+      <p id="feature-description"></p>
+    </div>
+
+    <!-- Voice Assistant Controls -->
+    <div class="voice-controls">
+      <button id="voiceToggle" class="voice-btn">
+        <i class="fas fa-microphone"></i> Tap to Speak
+      </button>
+      <div id="voice-status" class="status-indicator">
+        <div class="pulse-ring"></div>
+        <div class="pulse-dot"></div>
+      </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot" class="chatbot-container">
+      <div class="chatbot-header">
+        <h3>EVA Assistant</h3>
+        <button class="close-chat" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chatbot-box" id="chatbox"></div>
+      <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button onclick="handleUserInput()"><i class="fas fa-paper-plane"></i></button>
+        <button id="voice-input-btn"><i class="fas fa-microphone"></i></button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Future Development Plan: <strong>Advanced AI integration + Emotion Detection</strong></p>
+    </div>
+  </div>
+
+  <script src="project.js"></script>
+</body>
+</html>
