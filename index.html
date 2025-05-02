@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardware & Furniture Enterprises</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #fff;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .banner {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .filters {
+      float: left;
+      width: 20%;
+    }
+    .products {
+      float: right;
+      width: 75%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p, .product del {
+      margin: 0;
+    }
+    .sale-badge {
+      position: absolute;
+      background: black;
+      color: white;
+      padding: 5px;
+      font-size: 12px;
+      top: 10px;
+      left: 10px;
+    }
+    footer {
+      clear: both;
+      background: #f2f5f4;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+    footer .footer-section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    footer h4 {
+      margin-top: 0;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    footer ul li {
+      margin-bottom: 8px;
+    }
+    footer input[type="email"] {
+      padding: 8px;
+      width: 200px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    footer button {
+      padding: 8px 12px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hardware & Furniture Enterprises</h1>
+  </header>
+
+  <nav>
+    <div>
+      <a href="#">Tools</a>
+      <a href="#">Fasteners</a>
+      <a href="#">Home Improvement</a>
+      <a href="#">DIY Projects</a>
+    </div>
+    <div>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </nav>
+
+  <div class="banner">Seasonal savings are here! Shop our bestsellers before they are gone.</div>
+
+  <div class="container">
+    <aside class="filters">
+      <h3>Collapse All</h3>
+      <p>Tools <a href="#">×</a></p>
+      <label>Price</label>
+      <input type="range" min="0" max="200000" />
+      <br><br>
+      <label>Stock</label>
+      <select><option>Select an option</option></select>
+      <br><br>
+      <label>Collections</label><br>
+      <input type="checkbox"> DIY Projects<br>
+      <input type="checkbox"> Plumbing Supplies<br>
+      <input type="checkbox"> Power Tools<br>
+    </aside>
+
+    <main class="products">
+      <div class="product">
+        <span class="sale-badge">Sale!</span>
+        <img src="https://source.unsplash.com/featured/?wrench" alt="Adjustable Wrench">
+        <h3>Adjustable Wrench</h3>
+        <p><del>$24.99</del> $18.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+      <div class="product">
+        <span class="sale-badge">Sale!</span>
+        <img src="https://source.unsplash.com/featured/?circular-saw" alt="Circular Saw">
+        <h3>Circular Saw</h3>
+        <p><del>$129.99</del> $97.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+      <div class="product">
+        <span class="sale-badge">Sale!</span>
+        <img src="https://source.unsplash.com/featured/?cordless-drill" alt="Cordless Drill">
+        <h3>Cordless Drill</h3>
+        <p><del>$89.99</del> $67.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/featured/?hammer-set" alt="Hammer Set">
+        <h3>Hammer Set</h3>
+        <p>$39.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/featured/?jigsaw" alt="Jigsaw">
+        <h3>Jigsaw</h3>
+        <p>$79.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+      <div class="product">
+        <img src="https://source.unsplash.com/featured/?screwdriver-set" alt="Screwdriver Set">
+        <h3>Screwdriver Set</h3>
+        <p>$29.99</p>
+        <a href="#">Add to cart</a>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-section">
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li>Shop All</li>
+          <li>Power Tools</li>
+          <li>Plumbing Supplies</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li>Tools</li>
+          <li>Fasteners</li>
+          <li>Home Improvement</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li>DIY Projects</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Subscribe to Our Newsletter</h4>
+        <p>Stay updated with the latest tools and offers from Hardware & Furniture Enterprises.</p>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <p>&copy; 2025 Hardware & Furniture Enterprises – All rights reserved.</p>
+      <p>
+        <a href="#">Terms-and-conditions</a> |
+        <a href="#">Privacy-policy</a> |
+        <a href="#">Refund-policy</a> |
+        <a href="#">Shipping-policy</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
