@@ -106,9 +106,10 @@ python jarvis.py
 **Anurag Ranjan**
 Feel free to contribute, suggest features, or connect!
 
-* GitHub: [yourusername](https://github.com/yourusername)
-* LinkedIn: [yourprofile](https://linkedin.com/in/yourprofile)
-* Email: [your\_email@example.com](mailto:your_email@example.com)
+* GitHub: [Anurag1742](https://github.com/Anurag1742)
+* LinkedIn: [Anurag_Ranjan](https://www.linkedin.com/in/anurag-ranjan-68034b330/ )
+* Email: [anuragranjan373@gmail.com.com](Anuragranjan373@gmail.com)
+
 
 ---
 
