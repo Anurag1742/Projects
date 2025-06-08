@@ -1,0 +1,70 @@
+pip install pyttsx3
+pip show pyttsx3
+
+pip install wikipedia
+
+
+pip install SpeechRecognition
+
+pip install pipwin
+pipwin install pyaudio
+
+pip install pyaudio
+pip install pywhatkit 
+pip install bs4
+
+#translate
+pip install wolframalpha
+pip install googletrans
+pip install gtts
+pip install playsound
+
+
+
+features:- 
+Speek functions
+Greet me functions
+Conversations
+Searching from web (google, youtube, wikipedia)
+Temperature (Temperature & weather)
+Time
+Finally Sleep (to exit or close jarvis)
+Open and close apps/websites (like word, paint and various websites.)
+Calculator
+Screenshot
+Translator
+pip install pyttsx3
+pip show pyttsx3
+
+pip install wikipedia
+
+
+pip install SpeechRecognition
+
+pip install pipwin
+pipwin install pyaudio
+
+pip install pyaudio
+pip install pywhatkit 
+pip install bs4
+
+#translate
+pip install wolframalpha
+pip install googletrans
+pip install gtts
+pip install playsound
+
+
+
+features:- 
+Speek functions
+Greet me functions
+Conversations
+Searching from web (google, youtube, wikipedia)
+Temperature (Temperature & weather)
+Time
+Finally Sleep (to exit or close jarvis)
+Open and close apps/websites (like word, paint and various websites.)
+Calculator
+Screenshot
+Translator
